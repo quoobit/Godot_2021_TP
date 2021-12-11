@@ -1,0 +1,16 @@
+C:\Users\qbsudet\Documents\Godot_Projects\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.csprojAssemblyReference.cache
+C:\Users\qbsudet\Documents\Godot_Projects\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.AssemblyInfoInputs.cache
+C:\Users\qbsudet\Documents\Godot_Projects\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.AssemblyInfo.cs
+C:\Users\qbsudet\Documents\Godot_Projects\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.csproj.CoreCompileInputs.cache
+C:\Users\qbsudet\Documents\Godot_Projects\Godot_2021_TP\.mono\temp\bin\Debug\Godot_2021_TP.dll
+C:\Users\qbsudet\Documents\Godot_Projects\Godot_2021_TP\.mono\temp\bin\Debug\Godot_2021_TP.pdb
+C:\Users\qbsudet\Documents\Godot_Projects\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.dll
+C:\Users\qbsudet\Documents\Godot_Projects\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.pdb
+C:\Users\qbsudet\Documents\Godot_2021_TP\.mono\temp\bin\Debug\Godot_2021_TP.dll
+C:\Users\qbsudet\Documents\Godot_2021_TP\.mono\temp\bin\Debug\Godot_2021_TP.pdb
+C:\Users\qbsudet\Documents\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.csprojAssemblyReference.cache
+C:\Users\qbsudet\Documents\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.AssemblyInfoInputs.cache
+C:\Users\qbsudet\Documents\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.AssemblyInfo.cs
+C:\Users\qbsudet\Documents\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.csproj.CoreCompileInputs.cache
+C:\Users\qbsudet\Documents\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.dll
+C:\Users\qbsudet\Documents\Godot_2021_TP\.mono\temp\obj\Debug\Godot_2021_TP.pdb
