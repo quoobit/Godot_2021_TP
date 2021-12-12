@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Enemy : RigidBody
+public class Item_Dash : RigidBody
 {
 	private Vector3 pos;
 	private float speed = 50;
@@ -20,8 +20,14 @@ public class Enemy : RigidBody
 		this.Translation = pos;
 
 		if(pos.x < -100) {
-			GetTree().CallGroup("ScoreListener", "score_increment");
+			//GetTree().CallGroup("MainListener", "score_increment");
 			QueueFree();
 		}
 	}
+    // private void _on_Item_Dash_body_entered(Godot.RigidBody body) {
+    //     if(body.IsInGroup("Player")) {
+    //         GetTree().CallGroup("MainListener", "dashCount_increment");
+	// 		QueueFree();
+	// 	}
+    // }
 }
