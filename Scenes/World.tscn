@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Main.cs" type="Script" id=2]
@@ -50,7 +50,6 @@ material/0 = null
 shape = SubResource( 2 )
 
 [node name="Columns" type="Spatial" parent="Walls/Wall1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Column1" type="Spatial" parent="Walls/Wall1/Columns"]
 transform = Transform( 0.025, 0, 0, 0, 1.1, 0, 0, 0, 2, 0, 0, 0 )
@@ -209,7 +208,6 @@ material/0 = null
 shape = SubResource( 2 )
 
 [node name="Columns" type="Spatial" parent="Walls/Wall2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Column1" type="Spatial" parent="Walls/Wall2/Columns"]
 transform = Transform( 0.025, 0, 0, 0, 1.1, 0, 0, 0, 2, 0, 0, 0 )
@@ -375,13 +373,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScoreLabel" type="Label" parent="Control"]
+[node name="ScoreLabel" type="Label" parent="Control" groups=["ScoreListener"]]
 margin_right = 1280.0
 margin_bottom = 120.0
 custom_fonts/font = SubResource( 4 )
 text = "0"
 align = 1
 valign = 1
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

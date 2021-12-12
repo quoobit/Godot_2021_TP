@@ -18,9 +18,9 @@ public class Enemy : RigidBody
 		pos = GlobalTransform.origin;
 		pos.x += - delta * speed;
 		this.Translation = pos;
-
 		if(pos.x < -100) {
 			GetTree().CallGroup("ScoreListener", "score_increment");
+			GD.Print("call");
 			QueueFree();
 		}
 	}
