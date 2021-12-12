@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/Game Of Squids.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/Start.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Go_Main.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Gameover.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Base" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Base"]
+margin_left = 386.0
+margin_top = 216.0
+margin_right = 1100.0
+margin_bottom = 304.0
+rect_scale = Vector2( 0.703, 0.607 )
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="Base"]
+margin_left = 379.0
+margin_top = 328.0
+margin_right = 1093.0
+margin_bottom = 416.0
+rect_scale = Vector2( 0.703, 0.607 )
+custom_fonts/font = SubResource( 1 )
+text = "Score : 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="Base"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 394.0
+margin_top = 528.0
+margin_right = 656.0
+margin_bottom = 597.0
+rect_scale = Vector2( 0.703, 0.607 )
+custom_fonts/font = SubResource( 2 )
+text = "Restart"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="Base"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 698.0
+margin_top = 530.0
+margin_right = 884.0
+margin_bottom = 599.0
+rect_scale = Vector2( 0.703, 0.607 )
+custom_fonts/font = SubResource( 2 )
+text = "Main"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Base/Restart" to="Base/Restart" method="_on_Start_pressed"]
+[connection signal="pressed" from="Base/Start" to="Base/Start" method="_on_Start_pressed"]

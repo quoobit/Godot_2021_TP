@@ -14,6 +14,10 @@ config/name="Godot_2021_TP"
 run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Scores="*res://Scripts/Scores.gd"
+
 [display]
 
 window/size/width=1280

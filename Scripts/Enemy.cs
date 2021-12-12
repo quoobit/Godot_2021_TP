@@ -21,7 +21,7 @@ public class Enemy : RigidBody
 		this.Translation = pos;
 
 		if(pos.x < -100) {
-			GetTree().CallGroup("MainListener", "score_increment");
+			GetTree().CallGroup("ScoreListener", "score_increment");
 			QueueFree();
 		}
 	}

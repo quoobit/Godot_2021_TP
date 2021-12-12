@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 public class Main : Spatial
 {
 	// Declare member variables here. Examples:
@@ -11,8 +12,6 @@ public class Main : Spatial
 	Random r = new Random();
 	float linearSpeedX  = 1500f;
 	float linearSpeedY = 2000f;
-	private int score;
-	private Label scoreLabel;
 
 	private PackedScene EnemyScene = (PackedScene)ResourceLoader.Load("res://Scenes/Enemy.tscn");
 
@@ -20,8 +19,7 @@ public class Main : Spatial
 	public override void _Ready()
 	{
 		player = (RigidBody)GetNode("Player");
-		score = 0;
-		scoreLabel = (Label)GetNode("Control/ScoreLabel");
+
 	}
 
 	public override void _Input(InputEvent @event) {
@@ -69,14 +67,9 @@ public class Main : Spatial
 		e.Scale = scale;
 
 		e.Translation = pos;
-
 	}
 
-	public void score_increment() {
-		score += 1;
 
-		scoreLabel.Text = score.ToString();
-	}
 
 	private void _on_Player_body_entered(Godot.RigidBody body) {
 		if(body.IsInGroup("enemyGroup")) {
