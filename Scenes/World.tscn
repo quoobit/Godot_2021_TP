@@ -21,7 +21,6 @@ script = ExtResource( 2 )
 transform = Transform( 100, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, 0, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 3 )
@@ -37,7 +36,6 @@ shape = SubResource( 2 )
 transform = Transform( 100, 0, 0, 0, 10, 0, 0, 0, 0.5, 0, 5, 10 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Walls/Wall1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../../..")
 material/0 = null
@@ -51,6 +49,7 @@ shape = SubResource( 2 )
 transform = Transform( 100, 0, 0, 0, 10, 0, 0, 0, 0.5, 0, 5, -10 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Walls/Wall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../../..")
 material/0 = null
