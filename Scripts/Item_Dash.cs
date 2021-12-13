@@ -4,6 +4,7 @@ using System;
 public class Item_Dash : RigidBody
 {
 	private Vector3 pos;
+	//private Vector3 rotation;
 	private float speed = 50;
 
 	// Called when the node enters the scene tree for the first time.
@@ -15,6 +16,8 @@ public class Item_Dash : RigidBody
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
+		RotateObjectLocal(Vector3.Up, 3.0f * delta);
+
 		pos = GlobalTransform.origin;
 		pos.x += - delta * speed;
 		this.Translation = pos;
