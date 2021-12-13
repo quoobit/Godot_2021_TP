@@ -10,6 +10,7 @@
 [ext_resource path="res://Texture/CorrugatedMetalPanel02_MR_2K/CorrugatedMetalPanel02_2K_Normal.png" type="Texture" id=8]
 [ext_resource path="res://Texture/CorrugatedMetalPanel02_MR_2K/CorrugatedMetalPanel02_2K_Height.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/FloorTexture.gd" type="Script" id=10]
+[ext_resource path="res://Sounds/Beat1.mp3" type="AudioStream" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -696,6 +697,11 @@ autostart = true
 [node name="SpawnItemTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -30.0
+autoplay = true
 
 [connection signal="body_entered" from="Player" to="." method="_on_Player_body_entered"]
 [connection signal="timeout" from="SpawnEnemyTimer" to="." method="_on_SpawnEnemyTimer_timeout"]
