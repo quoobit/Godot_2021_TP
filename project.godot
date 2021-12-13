@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Godot_2021_TP"
-run/main_scene="res://Scenes/Menu.tscn"
+run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
 [autoload]

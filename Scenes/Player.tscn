@@ -14,7 +14,7 @@ transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0
 script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -3.4919e-08, -0.798854, 0, 1, -4.37114e-08, 0, 0.257889, 0 )
 shape = SubResource( 1 )
 
 [node name="CamBase" type="Spatial" parent="."]
