@@ -13,13 +13,13 @@ public class Main : Spatial
 	float linearSpeedX = 5000f; // dash speed
 	float linearSpeedZ = 1500f;
 	float linearSpeedY = 2000f;
-	private int score;
 	private Label scoreLabel;
 	private Label dashLabel;
 	private Label levelLabel;
 	private Label upLabel;
 	private int dashCount;
 	private int enemyNum;
+	private int score;
 	private float level;
 	private PackedScene EnemyScene = (PackedScene)ResourceLoader.Load("res://Scenes/Enemy.tscn");
 	private PackedScene ItemScene = (PackedScene)ResourceLoader.Load("res://Scenes/Item_Dash.tscn");
@@ -53,7 +53,7 @@ public class Main : Spatial
 			if(key.IsPressed() && key.IsActionPressed("ui_right")){
 				player.SetAxisVelocity(new Vector3(0, 0, linearSpeedZ * GetProcessDeltaTime()));
 			}
-			if(key.IsPressed() && key.IsActionPressed("ui_select")){
+			if(key.IsPressed() && key.IsActionPressed("ui_select") && player.Translation.x >-100){
 				player.SetAxisVelocity(new Vector3(0, linearSpeedY * GetProcessDeltaTime(), 0));
 			}
 			if(key.IsPressed() && key.IsActionPressed("dash_key")){
