@@ -6,6 +6,7 @@ public class Item_Dash : RigidBody
 	private Vector3 pos;
 	private float speed;
 	private Global global;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -16,6 +17,7 @@ public class Item_Dash : RigidBody
 	public override void _Process(float delta)
 	{
 		speed = global.GetPlayerVars().total;
+		RotateObjectLocal(Vector3.Up, 3.0f * delta);
 		pos = GlobalTransform.origin;
 		pos.x += - delta * speed;
 		this.Translation = pos;
