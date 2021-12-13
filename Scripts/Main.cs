@@ -21,9 +21,11 @@ public class Main : Spatial
 	private int enemyNum;
 	private int score;
 	private float level;
+	private float speed;
+	private bool onDash;
 	private PackedScene EnemyScene = (PackedScene)ResourceLoader.Load("res://Scenes/Enemy.tscn");
 	private PackedScene ItemScene = (PackedScene)ResourceLoader.Load("res://Scenes/Item_Dash.tscn");
-
+	private Global global;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -36,6 +38,9 @@ public class Main : Spatial
 		dashCount = 0;
 		enemyNum = 0;
 		level = 0;
+		speed = 0;
+		onDash = false;
+		global = (Global) GetNode("/root/Global");
 	}
 
 	public override void _Input(InputEvent @event) {
@@ -48,16 +53,20 @@ public class Main : Spatial
 			// 	player.SetAxisVelocity(new Vector3(linearSpeedX * GetProcessDeltaTime(), 0, 0));
 			// }
 			if(key.IsPressed() && key.IsActionPressed("ui_left")){
+				onDash = false;
 				player.SetAxisVelocity(new Vector3(0, 0, - linearSpeedZ * GetProcessDeltaTime()));
 			}
 			if(key.IsPressed() && key.IsActionPressed("ui_right")){
+				onDash = false;
 				player.SetAxisVelocity(new Vector3(0, 0, linearSpeedZ * GetProcessDeltaTime()));
 			}
 			if(key.IsPressed() && key.IsActionPressed("ui_select") && player.Translation.x >-100){
+				onDash = false;
 				player.SetAxisVelocity(new Vector3(0, linearSpeedY * GetProcessDeltaTime(), 0));
 			}
 			if(key.IsPressed() && key.IsActionPressed("dash_key")){
 				if(dashCount > 0) {
+					onDash = true;
 					player.SetAxisVelocity(new Vector3(linearSpeedX * GetProcessDeltaTime(), 0, 0));
 					dashCount_increment(-1);
 				} else {
@@ -66,6 +75,10 @@ public class Main : Spatial
 			}
 		}
 	}
+	public override void _Process(float delta)
+		{
+
+		}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
@@ -78,14 +91,16 @@ public class Main : Spatial
 		Godot.RigidBody e;
 		e = (Godot.RigidBody)EnemyScene.Instance();
 		AddChild(e);
-		float scale = 1+(float)0.5*level;
+		float scale = 1+(float)0.3*level;
 		e.Scale = new Vector3(scale, scale, scale);
-		if(enemyNum>=10) {
+		if(level < 10) {
+			if(enemyNum>=30) {
 			level += 1;
 			GD.Print("level up");
 			enemyNum = 0;
 			upLabel.Text = "Level Up!";
 			levelLabel.Text = "Level : "+level;
+			}
 		}
 		
 		if(enemyNum==5) {
@@ -139,6 +154,7 @@ public class Main : Spatial
 
 	private void _on_Player_body_entered(Godot.RigidBody body) {
 		if(body.IsInGroup("enemyGroup")) {
+			onDash = true;
 			GD.Print("Enemy contacted!");
 		}
 		else if(body.IsInGroup("itemGroup")) {
@@ -150,9 +166,21 @@ public class Main : Spatial
 			//if(hp > 0) GetTree().ReloadCurrentScene();
 		}
 	}
+	
+	private void _on_FloorSpeedTimer_timeout()
+	{
+		if(level < 10)
+		{
+			speed += 1;
+			global.AddPlayerVars(1);
+			// Replace with function body.
+		}
+
+	}
+	private void _on_PlayerSpeedTimer_timeout()
+	{
+		if(!onDash) {
+			player.SetAxisVelocity(new Vector3(-speed*(float)0.3, 0, 0));	
+		}
+	}
 }
-
-
-
-
-
