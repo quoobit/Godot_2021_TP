@@ -108,6 +108,10 @@ public class Main : Spatial
 		e.Translation = pos;
 	}
 
+	private int get_level() {
+		return (int)level;
+	}
+
 	private void _on_SpawnItemTimer_timeout() //시간마다 아이템 spawn
 	{
 		Godot.RigidBody e;
