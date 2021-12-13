@@ -914,7 +914,7 @@ material/0 = null
 shape = SubResource( 8 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.30727, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40727, 0 )
 mode = 2
 gravity_scale = 10.0
 contacts_reported = 4

@@ -68,7 +68,7 @@ public class Main : Spatial
 				onDash = false;
 				onJump = true;
 				GD.Print("Jump");
-				player.SetAxisVelocity(new Vector3(0, linearSpeedY * GetProcessDeltaTime() * 4, 0));
+				player.SetAxisVelocity(new Vector3(0, linearSpeedY * GetProcessDeltaTime() * 3, 0));
 			}
 			if(key.IsPressed() && key.IsActionPressed("dash_key")){
 				if(dashCount > 0) {
