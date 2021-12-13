@@ -102,11 +102,7 @@ public class Main : Spatial
 
 		e.Translation = pos;
 	}
-
-	public void score_increment() {
-		score += 1;
-		scoreLabel.Text = score.ToString();
-	}
+	
 	public void dashCount_increment(int num) {
 		if(dashCount < 3) {
 			dashCount += num;
