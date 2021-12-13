@@ -17,7 +17,8 @@ public class Main : Spatial
 	private Label scoreLabel;
 	private Label dashLabel;
 	private int dashCount;
-
+	private int enemyNum;
+	private float level;
 	private PackedScene EnemyScene = (PackedScene)ResourceLoader.Load("res://Scenes/Enemy.tscn");
 	private PackedScene ItemScene = (PackedScene)ResourceLoader.Load("res://Scenes/Item_Dash.tscn");
 
@@ -29,6 +30,8 @@ public class Main : Spatial
 		dashLabel = (Label)GetNode("Control/DashLabel");
 		score = 0;
 		dashCount = 0;
+		enemyNum = 0;
+		level = 0;
 	}
 
 	public override void _Input(InputEvent @event) {
@@ -67,13 +70,20 @@ public class Main : Spatial
 //  }
 	private void _on_SpawnEnemyTimer_timeout() //시간마다 벽(enemy) spawn
 	{
+		enemyNum += 1;
 		Godot.RigidBody e;
 		e = (Godot.RigidBody)EnemyScene.Instance();
 		AddChild(e);
+		float scale = 1+(float)0.5*level;
+		e.Scale = new Vector3(scale, scale, scale);
+		if(enemyNum>=10) {
+			level += 1;
+			GD.Print("level up");
+			enemyNum = 0;
+		}
 		Godot.Vector3 pos = e.GlobalTransform.origin;
 		pos.x = 100;
 		pos.y = 2;
-
 		int z_posRand = r.Next(-5, 5) * 2;
 		int y_posRand = r.Next(0, 5) * 2;
 		pos.z = pos.z - z_posRand;
