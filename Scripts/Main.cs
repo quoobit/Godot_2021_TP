@@ -9,6 +9,7 @@ public class Main : Spatial
 
 	//플레이어
 	RigidBody player;
+	Spatial pt;
 	Random r = new Random();
 	float linearSpeedX = 5000f; // dash speed
 	float linearSpeedZ = 1500f;
@@ -23,6 +24,7 @@ public class Main : Spatial
 	private float level;
 	private float speed;
 	private bool onDash;
+	private bool onJump;
 	private PackedScene EnemyScene = (PackedScene)ResourceLoader.Load("res://Scenes/Enemy.tscn");
 	private PackedScene ItemScene = (PackedScene)ResourceLoader.Load("res://Scenes/Item_Dash.tscn");
 	private Global global;
@@ -40,7 +42,9 @@ public class Main : Spatial
 		level = 0;
 		speed = 0;
 		onDash = false;
+		onJump = false;
 		global = (Global) GetNode("/root/Global");
+		pt = GetNode<Spatial>("Player");
 	}
 
 	public override void _Input(InputEvent @event) {
@@ -60,9 +64,11 @@ public class Main : Spatial
 				onDash = false;
 				player.SetAxisVelocity(new Vector3(0, 0, linearSpeedZ * GetProcessDeltaTime()));
 			}
-			if(key.IsPressed() && key.IsActionPressed("ui_select") && player.Translation.x >-100){
+			if(key.IsPressed() && key.IsActionPressed("ui_select") && player.Translation.x >-100 && !onJump){
 				onDash = false;
-				player.SetAxisVelocity(new Vector3(0, linearSpeedY * GetProcessDeltaTime(), 0));
+				onJump = true;
+				GD.Print("Jump");
+				player.SetAxisVelocity(new Vector3(0, linearSpeedY * GetProcessDeltaTime() * 4, 0));
 			}
 			if(key.IsPressed() && key.IsActionPressed("dash_key")){
 				if(dashCount > 0) {
@@ -77,7 +83,10 @@ public class Main : Spatial
 	}
 	public override void _Process(float delta)
 		{
-
+			if(onJump == true && pt.GetGlobalTransform().origin.y<1.5)
+			{
+				onJump = false;
+			}
 		}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
