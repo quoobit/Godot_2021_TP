@@ -16,6 +16,8 @@ public class Main : Spatial
 	private int score;
 	private Label scoreLabel;
 	private Label dashLabel;
+	private Label levelLabel;
+	private Label upLabel;
 	private int dashCount;
 	private int enemyNum;
 	private float level;
@@ -28,6 +30,8 @@ public class Main : Spatial
 		player = (RigidBody)GetNode("Player");
 		scoreLabel = (Label)GetNode("Control/ScoreLabel");
 		dashLabel = (Label)GetNode("Control/DashLabel");
+		levelLabel = (Label)GetNode("Control/LevelLabel");
+		upLabel = (Label)GetNode("Control/UpLabel");
 		score = 0;
 		dashCount = 0;
 		enemyNum = 0;
@@ -80,6 +84,12 @@ public class Main : Spatial
 			level += 1;
 			GD.Print("level up");
 			enemyNum = 0;
+			upLabel.Text = "Level Up!";
+			levelLabel.Text = "Level : "+level;
+		}
+		
+		if(enemyNum==5) {
+			upLabel.Text = "";
 		}
 		Godot.Vector3 pos = e.GlobalTransform.origin;
 		pos.x = 100;
@@ -117,7 +127,10 @@ public class Main : Spatial
 		if(dashCount < 3) {
 			dashCount += num;
 		}
-		dashLabel.Text = dashCount.ToString();
+		if(dashCount == 3 && num == -1) {
+			dashCount += num;
+		}
+		dashLabel.Text = "Dash : "+dashCount.ToString();
 	}
 
 	private void _on_Player_body_entered(Godot.RigidBody body) {
